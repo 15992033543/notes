@@ -78,7 +78,7 @@ ES6中新增了一个声明函数的语法糖——箭头函数，它的出现�
 
     var f = new Foo(); // TypeError: Foo is not a constructor
 
-因为箭头函数中并没有this，它的this取的是离它最近的外层作用域的this，详细情况会在下面提到。
+因为箭头函数中并没有this，它的this取的是离它最近的外层作用域的this，所以作为构造函数时会报错，详细情况会在下面提到。
 
 ## 箭头函数中this的指向
 
