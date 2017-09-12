@@ -154,3 +154,11 @@
     foo.call({ name: 'obj' }); // obj
 
 foo()函数是声明式函数，可以使用call()改变其this的指向，而bar是箭头函数，它在foo()函数的作用域中声明，所以其this的指向为foo()中this的指向，最终输出obj。
+
+由于箭头函数没有自身的this，所以它不能用作构造函数。
+
+    var Foo = () => {
+      this.name = 'foo';
+    }
+
+    new Foo(); // TypeError: Foo is not a constructor
