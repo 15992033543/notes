@@ -1,8 +1,8 @@
 # css的优先级
 
-优先级规则为：内联 > id选择器 > class选择器 > tag选择器
+优先级规则为：内联 > id > class > tag
 
-权重可分为：内联 = 1000，id选择器 = 100，class选择器 = 10，tag选择器 = 1
+权重可分为：内联 = 1000，id = 100，class = 10，tag = 1
 
     #foo {
       color: red;
@@ -22,7 +22,7 @@
     <!-- green -->
     <p class="bar" style="color: green">test</p>
 
-如果权重相等，则采用后来定义的，并合并之前定义的样式。
+如果权重相等，则后者合并前者。
 
     #foo {
       font-size: 30px;
@@ -36,7 +36,7 @@
     <!-- green, 30px -->
     <p id="foo" class="bar">test</p>
 
-如果拥有多个选择器，则将权重相加取最大值。
+如果拥有多个选择器，则将权重相加。
 
     #foo {
       color: red;
