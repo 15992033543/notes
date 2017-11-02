@@ -1,7 +1,5 @@
 # JavaScript中this的指向
 
-之前一直不明白JavaScript中this的指向，觉得很容易混淆，今天研究了一下，豁然开朗，分享一下。
-
 ## 全局变量this
 
 在browser环境中，this指向的是window对象。
@@ -85,7 +83,7 @@
 
     new Foo(); // Foo() {}
 
-## 对像方法中的this
+## 对象方法中的this
 
 谁调用这个方法，this就指向谁。
 
