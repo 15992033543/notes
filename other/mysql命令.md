@@ -77,6 +77,64 @@
 
 ### 查询数据
 
-查询指定表的所有列的数据：
+查询所有列的数据：
 
     SELECT * FROM mytable;
+
+*号表示所有列
+
+查询指定列的数据：
+
+    // 只查询name与age的数据
+    SELECT name,age FROM mytable;
+
+    // 给列指定别名
+    SELECT name AS "姓名",age AS "年龄" FROM mytable;
+
+按条件查询：
+
+    // 单条件查询
+    SELECT * FROM mytable WHERE id=1;
+
+    // AND表示并且
+    SELECT * FROM mytable WHERE age=12 AND name="tom";
+
+    // OR表示或者
+    SELECT * FROM mytable WHERE age=12 OR name="tom";
+
+    // IN表示一个区间，age满足括号内其中一个即可
+    SELECT * FROM mytable WHERE age IN (12,15,20);
+
+    // age小于15
+    SELECT * FROM mytable WHERE age<15;
+
+    // age介于10到20之间
+    SELECT * FROM mytable WHERE age BETWEEN 10 AND 20;
+
+### 修改数据
+
+    // 将tom的age改为13
+    UPDATE mytable SET age=13 WHERE name="tom";
+
+    // 同时修改多个列
+    UPDATE mytable SET age=13,gender="male" WHERE name="tom";
+
+### 删除数据
+
+删除所有数据：
+
+    // 第一种方法
+    DELETE FROM mytable;
+
+    /**
+     * 此方法也可以删除表中所有数据，相对于第一种方法，有三个特性：
+     * 1.效率更高；
+     * 2.可以清除自增长；
+     * 3.只能用于删除全部数据，不能带条件删除
+     */
+    TRUNCATE TABLE mytable;
+
+根据条件删除数据：
+
+    // 删除id为1的数据
+    DELETE FROM mytable WHERE id=1;
