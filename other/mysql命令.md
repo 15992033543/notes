@@ -85,108 +85,106 @@
 
 查询指定列的数据：
 
-    // 只查询name与age的数据
+    # 只查询name与age的数据
     SELECT name,age FROM mytable;
 
-    // 给列指定别名
+    # 给列指定别名
     SELECT name AS "姓名",age AS "年龄" FROM mytable;
 
 按条件查询：
 
-    // 单条件查询
+    # 单条件查询
     SELECT * FROM mytable WHERE id=1;
 
-    // AND表示并且
+    # AND表示并且
     SELECT * FROM mytable WHERE age=12 AND name="tom";
 
-    // OR表示或者
+    # OR表示或者
     SELECT * FROM mytable WHERE age=12 OR name="tom";
 
-    // IN表示一个区间，age满足括号内其中一个即可
+    # IN表示一个区间，age满足括号内其中一个即可
     SELECT * FROM mytable WHERE age IN (12,15,20);
 
-    // age小于15
+    # age小于15
     SELECT * FROM mytable WHERE age<15;
 
-    // age介于10到20之间
+    # age介于10到20之间
     SELECT * FROM mytable WHERE age BETWEEN 10 AND 20;
 
 ### 修改数据
 
-    // 将tom的age改为13
+    # 将tom的age改为13
     UPDATE mytable SET age=13 WHERE name="tom";
 
-    // 同时修改多个列
+    # 同时修改多个列
     UPDATE mytable SET age=13,gender="male" WHERE name="tom";
 
 ### 删除数据
 
 删除所有数据：
 
-    // 第一种方法
+    # 第一种方法
     DELETE FROM mytable;
 
-    /**
-     * 此方法也可以删除表中所有数据，相对于第一种方法，有三个特性：
-     * 1.效率更高；
-     * 2.可以清除自增长；
-     * 3.只能用于删除全部数据，不能带条件删除
-     */
+    # 此方法也可以删除表中所有数据，相对于第一种方法，有三个特性：
+    # 1.效率更高；
+    # 2.可以清除自增长；
+    # 3.只能用于删除全部数据，不能带条件删除
     TRUNCATE TABLE mytable;
 
 根据条件删除数据：
 
-    // 删除id为1的数据
+    # 删除id为1的数据
     DELETE FROM mytable WHERE id=1;
 
 ## 查询进阶
 
 分页查询：
 
-    // 查询表中前5条
+    # 查询表中前5条
     SELECT * FROM mytable LIMIT 5;
 
-    // 从第5条开始（第一条为0），查询10条
+    # 从第5条开始（第一条为0），查询10条
     SELECT * FROM mytable LIMIT 5,10;
 
 排序查询：
 
-    // 升序查询
+    # 升序查询
     SELECT * FROM mytable ORDER BY age ASC;
 
-    // 降序查询
+    # 降序查询
     SELECT * FROM mytable ORDER BY age DESC;
 
 模糊查询：
 
-    // %表示任意多个字符，_表示一个字符
+    # %表示任意多个字符，_表示一个字符
     SELECT * FROM mytable WHERE name like %tom%;
 
 null与非null查询：
 
-    // 查询name为null的数据
+    # 查询name为null的数据
     SELECT * FROM mytable WHERE name IS NULL;
 
-    // 查询name为非null的数据
+    # 查询name为非null的数据
     SELECT * FROM mytable WHERE name IS NOT NULL;
 
 聚合函数查询：
 
-    // 查询总记录数
+    # 查询总记录数
     SELECT COUNT(1) FROM mytable;
 
-    // 查询表中最大的age
+    # 查询表中最大的age
     SELECT MAX(age) FROM mytable;
 
-    // 查询表中最小的age
+    # 查询表中最小的age
     SELECT MIN(age) FROM mytable;
 
-    // 查询表中age的平均值
+    # 查询表中age的平均值
     SELECT AVG(age) FROM mytable;
 
 分组查询：
 
-    // 查询各个age拥有的数量
+    # 查询各个age拥有的数量
     SELECT COUNT(1),age FROM mytable GROUP BY age;
 
 | count(1) | age |
@@ -195,7 +193,7 @@ null与非null查询：
 |    2     |  15 |
 |    1     |  16 |
 
-    // 查询各个age拥有的数量，只显示数量>1的
+    # 查询各个age拥有的数量，只显示数量>1的
     SELECT COUNT(1),age FROM mytable GROUP BY age HAVING COUNT(1)>1;
 
 ## 数据类型
@@ -208,8 +206,11 @@ INT(n)：整型，默认最大存储9位数。
         id INT(4) ZEROFILL;
     )
 
-    // 表中会显示0002
     INSERT INTO mytable(id) VALUES(2);
+
+|  id  |
+| ---- |
+| 0002 |
 
 CHAR(n)：字符，默认长度为1，如果指定了n，则长度为n。
 
@@ -217,17 +218,44 @@ varchar(n)：字符串，n表示最大长度，创建表时必须指定n，不�
 
 ENUM：枚举，表示n选1，插入数据时只能从指定的值中选一个，不然会报错。
 
-    CREATE TABLE mytable(country ENUM('English','America','China'));
+    CREATE TABLE mytable(
+        country ENUM('English','America','China')
+    );
 
-    // Query OK
+    # Query OK
     INSERT INTO mytable VALUES('China');
 
-    // ERROR
+    # ERROR
     INSERT INTO mytable VALUES('Japan');
 
 SET：多选，表示n选n，插入数据时可以从指定值中选一个或者多个插入，用“,”隔开。
 
-    CREATE TABLE mytable(country ENUM('English','America','China'));
+    CREATE TABLE mytable(
+        country ENUM('English','America','China')
+    );
 
-    // Query OK
+    # Query OK
     INSERT INTO mytable VALUES('China,English');
+
+|    country    |
+| ------------- |
+| China,English |
+
+日期类型：
+
+    # DATE：日期
+    # DATETIME：日期+时间
+    # TIMESTAMP：时间戳，日期+时间，该条记录创建或者修改的时间，自动插入
+    CREATE TABLE mytable(
+        d1 DATE,
+        d2 DATETIME,
+        d3 TIMESTAMP
+    )
+
+    INSERT INTO mytable(d1,d2) values('2017/11/9','2017/11/9 23:45:33');
+    INSERT INTO mytable(d1,d2) values('2017-12-9','2017-12-9 23:45:33');
+
+|    d1     |          d2        |          d3        |
+| --------- | ------------------ | ------------------ |
+| 2017-11-9 | 2017-11-9 23:45:33 | 2017-11-9 23:45:33 |
+| 2017-12-9 | 2017-12-9 23:45:33 | 2017-11-9 23:45:33 |
