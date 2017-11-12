@@ -31,8 +31,8 @@
 ### 创建表
 
     CREATE TABLE mytable(
-      id INT,
-      name VARCHAR(4)
+        id INT,
+        name VARCHAR(4)
     )
 
 字段名在前，类型在后，括号内的数字表示最大长度
