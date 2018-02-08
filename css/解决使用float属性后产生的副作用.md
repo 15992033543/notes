@@ -18,6 +18,8 @@
 
 问题二：子元素使用float属性后，不会撑开父元素。
 
+css:
+
     .parent {
       background-color: red;
     }
@@ -28,6 +30,8 @@
       background-color: blue;
       float: left;
     }
+
+html:
 
     <div class="parent">
       <div class="child"></div>
@@ -37,6 +41,8 @@
 
 解决办法一：新增一个子元素，并使用clear属性清除浮动。
 
+css:
+
     .parent {
       background-color: red;
     }
@@ -47,6 +53,8 @@
       background-color: blue;
       float: left;
     }
+
+html:
 
     <div class="parent">
       <div class="child"></div>
@@ -55,6 +63,8 @@
 
 解决办法二：父元素也使用float属性，前提是父元素中需要有其它内容。
 
+css:
+
     .parent {
       background-color: red;
       float: left;
@@ -67,12 +77,16 @@
       float: left;
     }
 
+html:
+
     <div class="parent">
       hello
       <div class="child"></div>
     </div>
 
 解决办法三：父元素使用overflow属性。
+
+css:
 
     .parent {
       background-color: red;
@@ -85,6 +99,8 @@
       background-color: blue;
       float: left;
     }
+
+html:
 
     <div class="parent">
       <div class="child"></div>
