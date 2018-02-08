@@ -10,7 +10,7 @@ html:
 
 js:
 
-    var hello = var hello = document.getElementById('hello');
+    var hello = document.getElementById('hello');
 
     // 添加class1、class2
     hello.setAttribute('class', 'class1 class2');
