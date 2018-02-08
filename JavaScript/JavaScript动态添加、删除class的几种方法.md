@@ -2,9 +2,7 @@
 
 ## setAttribute()与removeAttribute()
 
-使用setAttribute('class', 'className')可以为dom添加class，多个class可以用空格隔开。
-
-使用与removeAttribute('class')可以删除dom所有的class。
+使用setAttribute('class', 'className')可以为dom添加class，多个class可以用空格隔开；使用removeAttribute('class')可以删除dom所有的class。
 
 html:
 
@@ -36,7 +34,7 @@ html5中提供了classList用于管理dom的样式，它有以下几个api:
 
 ## className属性
 
-dom提供了一个className属性，可以获取dom所有的class，这个方法兼容所有浏览器，应优先使用。
+dom提供了一个className属性，可以获取dom所有的class，这个方法兼容所有浏览器。
 
 html:
 
@@ -51,8 +49,6 @@ js:
 
 设置className属性，可以为dom动态添加class。
 
-js:
-
     var hello = var hello = document.getElementById('hello');
 
     // 添加class3
@@ -62,8 +58,6 @@ js:
     hello.className = hello.className.replace('class3', '').trim();
 
 可以将几个常用的操作封装成方法，方便使用：
-
-js:
 
     // 是否存在class
     HTMLElement.prototype.hasClass = function (name) {
@@ -102,8 +96,6 @@ js:
     hello.removeClass('a', 'b');
 
 ## 使用jQuery
-
-js:
 
     $('#hello').addClass('a b c d');
     $('#hello').removeClass('a b');
