@@ -15,7 +15,7 @@
 
 一个函数，其this指向全局对象。
 
-    function foo() {
+    function foo () {
       console.log(this);
     }
 
@@ -25,7 +25,7 @@
 
     'use strict';
 
-    function foo() {
+    function foo () {
       console.log(this);
     }
 
@@ -33,7 +33,7 @@
 
 我们可以使用call()或者apply()来改变函数运行时this的指向。
 
-    function foo() {
+    function foo () {
       console.log(this.name)
     }
 
@@ -43,10 +43,10 @@
 
     var name = 'global';
 
-    function foo() {
+    function foo () {
       console.log(this.name); // obj
 
-      function bar() {
+      function bar () {
         console.log(this.name); // global
       }
 
@@ -59,12 +59,12 @@
 
     var name = 'global';
 
-    function foo() {
+    function foo () {
       console.log(this.name); // obj
 
       var that = this;
 
-      function bar() {
+      function bar () {
         console.log(that.name); // obj
       }
 
@@ -77,7 +77,7 @@
 
 如果在函数前加new，那么this指向这个构造函数实例。
 
-    function Foo() {
+    function Foo () {
       console.log(this);
     }
 
@@ -91,14 +91,14 @@
 
     var o1 = {
       name: 'o1',
-      foo: function() {
+      foo: function () {
         console.log(this.name);
       }
     }
 
     var o2 = {
       name: 'o2',
-      foo: function() {
+      foo: function () {
         console.log(this.name);
       }
     }
@@ -141,7 +141,7 @@
 
     var name = 'global';
 
-    function foo() {
+    function foo () {
       var bar = () => {
         console.log(this.name);
       }

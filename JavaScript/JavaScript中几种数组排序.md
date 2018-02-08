@@ -4,7 +4,7 @@
 
 冒泡循环的原理是取出第一个元素与第二个元素对比，如果第一个元素大于第二个元素，交换位置，否则不变；之后取出第二个元素与第三个元素作对比，如果第二个元素大于第三个元素，交换位置，否则不变，以此类推。
 
-    function bubbleSort(arr) {
+    function bubbleSort (arr) {
       let length = arr.length;
       for (let i = 0; i < length; i++) {
         for (let j = 0; j < length - 1 - i; j++) {
@@ -41,7 +41,7 @@ forj循环里有两个优化。
 
 选择排序的原理是取出第一个元素与第二个元素比较，如果第一个元素大于第二个元素，交互位置，否则不变；之后取出第一个元素与第三个元素比较，如果第一个元素大于第三个元素，交互位置，否则不变，以此类推。
 
-    function selectSort(arr) {
+    function selectSort (arr) {
       let length = arr.length;
       for (let i = 0; i < length - 1; i++) {
         for (let j = i + 1; j < length; j++) {
@@ -75,7 +75,7 @@ fori循环中length - 1，是因为执行完第length - 1次fori循环后，数�
 
 快速排序的原理是先获取数组的基准点并从数组中删除（一般是数组正中间），然后将数组中小于基准点的元素放到左边，大于基准点的数放到右边。不断递归，直至数组长度为1为止。
 
-    function quickSort(arr) {
+    function quickSort (arr) {
       let length = arr.length;
       // 当数组长度为1时，返回此数组
       if (length < 2) {

@@ -14,7 +14,7 @@ ES6中新增了一个声明函数的语法糖——箭头函数，它的出现�
 
 上面写法相当于：
 
-    var foo = function(msg) {
+    var foo = function (msg) {
       console.log(msg);
     }
 
@@ -22,7 +22,7 @@ ES6中新增了一个声明函数的语法糖——箭头函数，它的出现�
 
 又或者：
 
-    function foo(msg) {
+    function foo (msg) {
       console.log(msg);
     }
 
@@ -54,7 +54,7 @@ ES6中新增了一个声明函数的语法糖——箭头函数，它的出现�
 
 相当于：
 
-    var foo = function(num) {
+    var foo = function (num) {
       return num + 1;
     }
 
