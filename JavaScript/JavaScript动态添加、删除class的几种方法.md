@@ -42,14 +42,14 @@ html:
 
 js:
 
-    var hello = var hello = document.getElementById('hello');
+    var hello = document.getElementById('hello');
 
     // class1 class2
     hello.className;
 
 设置className属性，可以为dom动态添加class。
 
-    var hello = var hello = document.getElementById('hello');
+    var hello = document.getElementById('hello');
 
     // 添加class3
     hello.className = hello.className + ' class3';
@@ -91,7 +91,7 @@ js:
     }
 
     // 调用
-    var hello = var hello = document.getElementById('hello');
+    var hello = document.getElementById('hello');
     hello.addClass('a', 'b', 'c', 'd');
     hello.removeClass('a', 'b');
 
