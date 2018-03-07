@@ -72,7 +72,8 @@ JS提供了toFixed()方法用于保留N位小数并四舍五入，但这个方�
         n2 = right.substring(num, num + 1);
         if (n2 && Number(n2) >= 5) {
           if ((Number(n1) + 1).toString().length > n1.length) {
-            left = Number(left) + 1;
+            var sign = Number(value) < 0 ? '-' : '';
+            left = sign + (Math.abs(Number(left)) + 1);
             n1 = new Array(num + 1).join('0');
           } else {
             n1 = Number(n1) + 1;
