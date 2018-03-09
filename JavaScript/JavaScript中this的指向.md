@@ -11,6 +11,28 @@
     console.log(this); // {}
     console.log(this === module.exports); // true
 
+## dom事件中的this
+
+在dom事件中，this指向触发这个事件的dom对象
+
+html:
+
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+
+js:
+
+    var lis = document.querySelector('li');
+    for (var i = 0; i < lis.length; i++) {
+      var li = lis[i];
+      li.onclick = function () {
+        console.log(this);
+      }
+    }
+
 ## 函数中的this
 
 一个函数，其this指向全局对象。
