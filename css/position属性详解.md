@@ -26,7 +26,7 @@ position属性用于元素定位，元素使用定位后，可以通过left、ri
 
 ![效果图](https://upload-images.jianshu.io/upload_images/4655331-0610bd0d1cd53bf8.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/384)
 
-这种效果可以通过监听滚动事件，滚动到导航条的位置时，将导航条布局的position设置为fixed即可。但现在可以通过css来实现：
+这种效果可以通过监听滚动事件实现，当滚动到导航条的位置时，将导航条布局的position设置为fixed即可。但现在可以通过position: sticky来实现：
 
 css:
 
