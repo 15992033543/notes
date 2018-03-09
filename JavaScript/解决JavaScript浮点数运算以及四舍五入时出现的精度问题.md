@@ -63,6 +63,9 @@ JS提供了toFixed()方法用于保留N位小数并四舍五入，但这个方�
         throw new Error('the parameter is not a number!');
       }
       num = isNaN(num) ? 2 : Number(num);
+      if (num < 0) {
+        throw new Error('the num can not be less than 0!');
+      }
       var left, right, n1, n2;
       var data = value.toString().split('.');
       left = data[0];
@@ -84,5 +87,5 @@ JS提供了toFixed()方法用于保留N位小数并四舍五入，但这个方�
       } else {
         n1 = new Array(num + 1).join('0');
       }
-      return left + '.' + n1;
+      return num > 0 ? left + '.' + n1 : left;
     }
