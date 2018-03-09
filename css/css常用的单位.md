@@ -43,7 +43,7 @@ css:
     .child {
       width: 12rem;
       height: 5rem;
-      background-color: red; 
+      background-color: red;
     }
 
 html:
