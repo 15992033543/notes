@@ -1,49 +1,25 @@
 # css3的transition属性
 
-transition是css3的属性，用于制作过渡效果。transition可以为元素指定一个css属性，元素的这个css属性发生变化时，会产生过渡效果。
+transition是css3的属性，用于制作过渡效果。transition可以为元素指定一个css属性，当元素的这个css属性发生变化时，会产生过渡效果。
 
-例子一：
+## 属性
 
-    #div {
-      width: 100px;
-      height: 100px;
-      background-color: red;
-      transition: width 500ms;
-    }
+|             值            |         作用         |
+| --------------------------- | ------------------- |
+| transition-property | 规定设置过渡效果的 CSS 属性的名称 |
+| transition-duration | 规定完成过渡效果需要多少秒或毫秒 |
+| transition-timing-function | 规定速度效果的速度曲线 |
+| transition-delay | 定义过渡效果何时开始 |
 
-    #div:hover {
-      width: 400px;
-    }
+单行简写：transition: property duration timing-function delay
 
-上面的代码，当鼠标移至这个div时，div的宽度会变成400px，且有一个时间为500ms的过渡效果，当鼠标离开后，div的宽度会以相同的动画效果恢复至100px。
+timing-function的预设值：
 
-例子二：
-
-css:
-
-    #div {
-      width: 100px;
-      height: 100px;
-      background-color: red;
-      transition: width 1s;
-    }
-
-js:
-
-    var div = document.getElementById('div');
-    div.onclick = function () {
-      div.style.width = '400px';
-    }
-
-上面的代码，点击div后，div的宽度会变成400px，且有一个时间为1s的过渡效果，宽度400px会停留在最终效果，不会恢复。
-
-transition有四个属性，分别是：
-
-* transition-property：设置过渡的css属性
-* transition-duration：设置过渡持续的时间
-* transition-timing-function：设置速度效果
-* transition-delay：设置延迟执行
-
-可以用transition简写：
-
-    transition: property duration timing-function delay;
+|             值            |         作用         |
+| --------------------------- | ------------------- |
+| linear | 规定以相同速度开始至结束的过渡效果（等于 cubic-bezier(0,0,1,1)） |
+| ease | 规定慢速开始，然后变快，然后慢速结束的过渡效果（cubic-bezier(0.25,0.1,0.25,1)） |
+| ease-in | 规定以慢速开始的过渡效果（等于 cubic-bezier(0.42,0,1,1)） |
+| ease-out | 规定以慢速结束的过渡效果（等于 cubic-bezier(0,0,0.58,1)） |
+| ease-in-out | 规定以慢速开始和结束的过渡效果（等于 cubic-bezier(0.42,0,0.58,1)） |
+| cubic-bezier(n,n,n,n) | 在 cubic-bezier 函数中定义自己的值。可能的值是 0 至 1 之间的数值 |
