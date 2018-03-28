@@ -37,6 +37,11 @@ reduce()方法可用作数组累加，也可用作数组中元素的比较，该
 
     console.log(max.name); // tom
 
+注意：
+
+* 空数组调用reduce方法会报错
+* 如果数组中只有一个元素，不会走callback，会直接返回数组中第一个元素
+
 ## 模拟reduce
 
 先取出第一个和第二个元素，执行一次callback，将返回值作为新的accumulator；遍历剩下的元素，执行callback，并将返回值作为新的accumulator即可
